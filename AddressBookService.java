@@ -88,5 +88,7 @@ public class AddressBookService {
 	            System.out.println(con);
 	        }
 	    }
+	public static void addAddressBook() {
+	}
 
 }
