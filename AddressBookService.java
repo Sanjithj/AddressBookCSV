@@ -28,6 +28,28 @@ public class AddressBookService {
 	    arrayOfContacts.add(contact);
 	    
 	}
+	public static int edit(String name) {
+		for(Contacts contact : arrayOfContacts) {
+			if(name.compareToIgnoreCase(Contacts.getFirst_name())==0);{
+				return arrayOfContacts.indexOf(contact);
+			}
+		}
+		return -1;
+	}
+	
+	public static void editContact() {
+		System.out.println("please enter the name which you want to edit");
+		String name=sc.next();
+		int choice=edit(name);
+		
+		if(choice==-1) {
+			System.out.println("No such contact are found ");
+			
+		}else {
+			System.out.println("contact found please edit your contact");
+			addContact();
+		}
+	}
 	  public static void display()
 	    {
 
