@@ -50,6 +50,28 @@ public class AddressBookService {
 			addContact();
 		}
 	}
+	public static int delete(String name) {
+		for(Contacts contact : arrayOfContacts) {
+			if(name.compareToIgnoreCase(Contacts.getFirst_name())==0){
+				return arrayOfContacts.indexOf(contact);
+			}
+		}
+		return -1;
+	}
+	public static void deleteContact() {
+		System.out.println("please enter the name which you want to delete");
+		String name=sc.next();
+		int choice=delete(name);
+		
+		if(choice == -1) {
+			System.out.println("No such contact are found ");
+			
+		}else {
+			 
+			arrayOfContacts.remove(choice);
+			System.out.println("contact deleted successfully!!");
+		}
+	}
 	  public static void display()
 	    {
 
