@@ -1,8 +1,13 @@
 package com.bridgelabz;
 
 import java.util.Scanner;
+import java.util.logging.FileHandler;
 
 public class AddressBookMain {
+
+
+public static final String addressBook = null;
+
 public static void main(String[] args) {
 	System.out.println("Welcome to address book");
 	Scanner sc =new Scanner(System.in);
@@ -25,6 +30,36 @@ public static void main(String[] args) {
 		case 5:
 			AddressBookService.addAddressBook();
 			break;
+		case 6:
+            FileHandler file = new FileHandler();
+
+            System.out.print(" Please enter to perform read or write: ");
+            String fileOption = sc.next();
+
+            System.out.print(" Please enter which format to operate in (txt/csv/json): ");
+            String fileFormatOption = sc.next();
+
+            if (fileFormatOption.equalsIgnoreCase("txt")) {
+                if (fileOption.equalsIgnoreCase("read") || fileOption.equalsIgnoreCase("r"))
+                    file.readFromFile();
+                else {
+                    System.out.print(" Please enter which address book to write: ");
+                    String adBookFile = sc.next();
+
+                    file.writeIntoFile(adBookFile, adBook);
+                }
+            }
+            else if (fileFormatOption.equalsIgnoreCase("txt")) {
+                if (fileOption.equalsIgnoreCase("read") || fileOption.equalsIgnoreCase("r"))
+                    file.readtxtFile();
+                else {
+                    System.out.print(" Please enter which address book to write: ");
+                    String adBookFile = sc.next();
+
+                    file.writeCSVFile(adBookFile, adBook);
+                }
+            }
+            break;
 		default:
 			System.out.println("Enter the option");
 		}
@@ -35,4 +70,5 @@ public static void main(String[] args) {
 	
 	
 }
+
 }
